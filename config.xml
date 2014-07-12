@@ -1,1 +1,21 @@
-xml
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "ru.smartysystems.app"
+        versionCode = "10" 
+        version     = "0.0.1" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>Smart Home Next UI</name>
+
+    <description>
+      Openhab Next UI 
+    </description>
+
+    <author href="http://smartysystems.ru" email="nurgaleevarman@gmail.com">
+      Nurgaleev Arman
+    </author>
+
+
+</widget>
