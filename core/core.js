@@ -6,7 +6,7 @@ var requestTime = 2500; 										//json request timer in ms
 var logEnabled = false;											//enable console.log
 var clickDisableTime = 2000;									//Время отключения обработки кликов в мс
 
-var loopTimer = setTimeout( Item_Get , requestTime );	//loop timer for item json request
+var loopTimer = setTimeout( Item_Get2 , requestTime );	//loop timer for item json request
 
 //OpenHAB object
 function OH_Item( name , image , stateOff , stateOn , textOff , textOn ) {
@@ -189,6 +189,37 @@ function Item_SendCommand ( ItemObj )
     });
     request.done( function(data) { Console_Log ( "log", "Success: send command " + ItemObj.stateNew + " to " + ItemObj.name ); });
     request.fail( function(jqXHR, Status ) { Console_Log ( "error", "Failure: send command " + ItemObj.stateNew + " to " + ItemObj.name + " / " + Status ) ;});
+}
+
+function Item_Get2 ( ItemObj )
+{
+	var request = $.ajax
+	({
+		url: server_adress+rest_request_item,
+		type       : "GET",
+        dataType: "json"
+    });
+	
+	request.done( function(data) { 
+	
+			$.each ( data , function (index , value) {
+				try {
+					$.each ( value , function ( index2 , value2 ) {
+						jsonObj = jQuery.parseJSON(JSON.stringify(value2));
+						Item_Search(jsonObj);
+						//Console_Log("error",jsonObj);
+					});
+				}
+		catch(e){
+			Console_Log("error","Item JSON decode fail");//это для наглядности дебага
+		}
+		});
+	
+	});
+    request.fail( function(jqXHR, textStatus ) { Console_Log("error","Failure: send command " + ItemObj.stateNew + " to " + ItemObj.name + " / " + textStatus ) ;});
+
+	
+	loopTimer = setTimeout ( Item_Get2 , requestTime ) ;
 }
 
 $( "#FF_ShowRoom_Door_Image" ).click( function() {
