@@ -3,7 +3,7 @@ var rest_request_item = "/rest/items?type=json";				//openhab rest item request
 var rest_request_sitemap = "/rest/sitemaps/Main_SM?type=json";	//openhab rest sitemap theme request
 
 var requestTime = 2500; 										//json request timer in ms
-var logEnabled = true;											//enable console.log
+var logEnabled = false;											//enable console.log
 var clickDisableTime = 2000;									//Время отключения обработки кликов в мс
 
 var loopTimer = setTimeout( Item_Get , requestTime );	//loop timer for item json request
