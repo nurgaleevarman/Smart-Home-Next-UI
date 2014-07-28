@@ -2,22 +2,46 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="jquery/jquery.mobile-1.4.3.min.css" />
-	<script src="phonegap.js"></script>
-	<script src="jquery/jquery-1.4.3.min.js"></script>
-	<script src="jquery/jquery.mobile-1.4.3.min.js"></script>
+	<script src="js\jquery-2.1.1.js"></script>
+	<script src="js\jquery.mobile-1.4.3.js"></script>
+	<link rel="stylesheet" href="css\jquery.mobile-1.4.3.css">
 </head>
 
 <body>
-	<div data-role="page">
-            <div data-role="header">
-                <h1>Заголовок</h1>
-            </div>
-            <div data-role="content">
-               <p>Содержание</p>
-            </div>
-    </div>
-</div>
+	<div id ="FF_ShowRoom_Door"> <span></span>  
+	<image id ="FF_ShowRoom_Door_Image" src="">
+	</div> <br>
+	<div id ="Weather_Chart_Period"> <span></span>  
+	<image id ="Weather_Chart_Period_Image" src=""></div>
+	
+	<div data-role="page" id="foo">
+	
+		<div data-role="header">
+			<h1>Foo</h1>
+		</div><!-- /header -->
+		
+		<div role="main" class="ui-content">
+			<p>I'm first in the source order so I'm shown as the page.</p>
+			<p>View internal page called <a href="#bar">bar</a></p>
+			<button class="ui-btn ui-corner-all" id ="FF_ShowRoom_Door2">Button</button>
+			<form>
+				<label for="flip-checkbox-3">Flip toggle switch checkbox:</label>
+				<input type="checkbox" data-role="flipswitch" name="flip-checkbox-3" id="flip-checkbox-3" data-on-text="Assured" data-off-text="Uncertain" data-wrapper-class="custom-size-flipswitch">
+			</form>
+			<form>
+			<label for="flip-1">Flip toggle switch:</label>
+				<select id="flip-1" name="flip-1" data-role="slider">
+					<option value="off">открыт</option>
+					<option value="on">закрыт</option>
+				</select>
+			</form>
+		</div><!-- /content -->
+
+		<div data-role="footer">
+			<h4>Page Footer</h4>
+		</div><!-- /footer -->
+		
+	</div><!-- /page -->
+	<script src="core\core.js"></script>
 </body>
 </html>
